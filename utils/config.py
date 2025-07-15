@@ -25,8 +25,8 @@ class Config(BaseSettings):
     whisper_model: str = Field(default="base", env="WHISPER_MODEL")
     
     # File paths
-    temp_folder: Path = Field(default=Path("./temp"), env="TEMP_FOLDER")
-    output_folder: Path = Field(default=Path("./output"), env="OUTPUT_FOLDER")
+    temp_folder: Path = Field(default=Path(".\\temp"), env="TEMP_FOLDER")
+    output_folder: Path = Field(default=Path(".\\output"), env="OUTPUT_FOLDER")
     
     # Processing settings
     max_file_size_mb: int = Field(default=500, env="MAX_FILE_SIZE_MB")
