@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  youtube-workflow:
+    build: .
+    container_name: youtube-workflow
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MURF_API_KEY=${MURF_API_KEY}
+      - NOTION_API_KEY=${NOTION_API_KEY}
+      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID}
+      - TEMP_FOLDER=/app/temp
+      - OUTPUT_FOLDER=/app/output
+    volumes:
+      - ./temp:/app/temp
+      - ./output:/app/output
+      - ./logs:/app/logs
+    ports:
+      - "4000:4000"
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+  # Optional: Add a web interface service
+  web-interface:
+    build: .
+    container_name: youtube-workflow-web
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MURF_API_KEY=${MURF_API_KEY}
+      - NOTION_API_KEY=${NOTION_API_KEY}
+      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID}
+    volumes:
+      - ./temp:/app/temp
+      - ./output:/app/output
+    ports:
+      - "4080:4000"
+    command: ["python", "web_interface.py"]
+    depends_on:
+      - youtube-workflow
+    restart: unless-stopped
+
+volumes:
+  temp_data:
+  output_data:
+  logs_data:

@@ -1,0 +1,63 @@
+# Core AutoGen dependencies
+autogen-agentchat>=0.6.0
+autogen-ext[openai]>=0.6.0
+
+# YouTube processing
+yt-dlp>=2024.1.0
+youtube-dl>=2021.12.17
+
+# Audio/Video processing
+pydub>=0.25.1
+moviepy>=1.0.3
+librosa>=0.10.0
+soundfile>=0.12.1
+
+# Transcription
+openai-whisper>=20231117
+whisper>=1.1.10
+
+# Translation
+googletrans>=4.0.0
+deep-translator>=1.11.4
+
+# Text-to-Speech (Murf API)
+requests>=2.31.0
+httpx>=0.25.0
+
+# Notion API
+notion-client>=2.2.1
+
+# Utility libraries - FIXED PYDANTIC VERSIONS
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-dotenv>=1.0.0
+asyncio>=3.4.3
+aiofiles>=23.2.1
+pathlib>=1.0.1
+
+# FastAPI for web interface (optional)
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# Logging and monitoring
+structlog>=23.2.0
+python-json-logger>=2.0.7
+
+# File management
+# tempfile>=1.0
+# shutil>=1.0
+
+# Environment and configuration
+python-decouple>=3.8
+
+# Database and caching
+sqlalchemy>=2.0.0
+redis>=5.0.0
+
+# Testing dependencies
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Security scanning
+safety>=2.3.0
